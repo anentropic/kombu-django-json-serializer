@@ -4,48 +4,33 @@ kombu-django-json-serializer
 
 |Build Status| |PyPi Version|
 
-|Python2.6| |Django1.4| |Django1.5| |Django1.6|
-
-|Python2.7| |Django1.4| |Django1.5| |Django1.6| |Django1.7| |Django1.8| |Django1.9|
-
-|Python3.2| |Python3.3| |Django1.5| |Django1.6| |Django1.7| |Django1.8|
-
-|Python3.4| |Django1.7| |Django1.8| |Django1.9|
-
-|Python3.5| |Django1.8| |Django1.9|
-
 .. |Build Status| image:: https://travis-ci.org/anentropic/kombu-django-json-serializer.svg?branch=master
     :alt: Build Status
     :target: https://travis-ci.org/anentropic/kombu-django-json-serializer
 .. |PyPi Version| image:: https://badge.fury.io/py/kombu-django-json-serializer.svg
     :alt: Latest PyPI version
     :target: https://pypi.python.org/pypi/kombu-django-json-serializer/
-.. |Python2.6| image:: https://img.shields.io/badge/Python%202.6--brightgreen.svg
-    :alt: Python 2.6
-.. |Python2.7| image:: https://img.shields.io/badge/Python%202.7--brightgreen.svg
-    :alt: Python 2.7
-.. |Python3.2| image:: https://img.shields.io/badge/Python%203.2--brightgreen.svg
-    :alt: Python 3.2
-.. |Python3.3| image:: https://img.shields.io/badge/Python%203.3--brightgreen.svg
-    :alt: Python 3.3
-.. |Python3.4| image:: https://img.shields.io/badge/Python%203.4--brightgreen.svg
-    :alt: Python 3.4
-.. |Python3.5| image:: https://img.shields.io/badge/Python%203.5--brightgreen.svg
-    :alt: Python 3.5
-.. |Django1.4| image:: https://img.shields.io/badge/Django%201.4--brightgreen.svg
-    :alt: Django 1.4
-.. |Django1.5| image:: https://img.shields.io/badge/Django%201.5--brightgreen.svg
-    :alt: Django 1.5
-.. |Django1.6| image:: https://img.shields.io/badge/Django%201.6--brightgreen.svg
-    :alt: Django 1.6
-.. |Django1.7| image:: https://img.shields.io/badge/Django%201.7--brightgreen.svg
-    :alt: Django 1.7
-.. |Django1.8| image:: https://img.shields.io/badge/Django%201.8--brightgreen.svg
-    :alt: Django 1.8
-.. |Django1.9| image:: https://img.shields.io/badge/Django%201.9--brightgreen.svg
-    :alt: Django 1.9
+
+Tested against same versions of Python that Django supports:
+
+|            | Py2.6 | Py2.7 | Py3.2 | Py3.3 | Py3.4 | Py3.5 |
+|------------|-------|-------|-------|-------|-------|-------|
+| Django 1.4 | *     | *     |       |       |       |       |
+| Django 1.5 | *     | *     | *     | *     |       |       |
+| Django 1.6 | *     | *     | *     | *     |       |       |
+| Django 1.7 |       | *     | *     | *     | *     |       |
+| Django 1.8 |       | *     | *     | *     | *     | *     |
+| Django 1.9 |       | *     |       |       | *     | *     |
 
 
 A JSON serializer for Kombu that makes use of Django's extended JSON serializers
 
-See GitHub for usage and docs.
+Makes a `'django_json'` serializer type available, for example:
+
+```
+>>> producer = Producer(channel,
+                        exchange=exchange,
+                        routing_key=rkey,
+                        serializer="django_json")
+>>> producer.publish(MyModel.objects.get(pk=3))
+```
