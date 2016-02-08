@@ -1,0 +1,7 @@
+language: python
+
+install:
+  - pip install tox>=1.8
+  - pip install .
+script:
+  - tox
