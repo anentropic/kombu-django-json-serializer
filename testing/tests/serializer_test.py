@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+from __future__ import unicode_literals
 from datetime import date, datetime
 from decimal import Decimal
 
@@ -11,19 +12,19 @@ from testapp.factories import ExampleFactory
 
 
 def test_string():
-    obj = u'whatever 🚀'
+    obj = 'whatever 🚀'
     encoded = base_encoder(obj)
     assert base_decoder(encoded) == obj
 
 
 def test_dict():
-    obj = {'val': u'whatever 🚀'}
+    obj = {'val': 'whatever 🚀'}
     encoded = base_encoder(obj)
     assert base_decoder(encoded) == obj
 
 
 def test_list():
-    obj = [u'whatever 🚀']
+    obj = ['whatever 🚀']
     encoded = base_encoder(obj)
     assert base_decoder(encoded) == obj
 
