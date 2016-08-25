@@ -9,7 +9,7 @@ def base_encoder(obj):
     except Exception:
         # not an iterable of Model instances
         # we can still be useful... (handle date/time & Decimal)
-        return json.dumps(obj, cls=DjangoJSONEncoder)
+        return json.dumps(obj, cls=DjangoJSONEncoder, separators=(',', ':'))
 
 
 def base_decoder(data):
