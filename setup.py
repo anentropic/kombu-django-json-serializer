@@ -18,7 +18,7 @@ class Tox(TestCommand):
 
 setup(
     name='kombu-django-json-serializer',
-    version='0.1.2',
+    version='0.1.3',
     description="A JSON serializer for Kombu that makes use of Django's extended JSON serializers",
     long_description=open('README.rst').read(),
     author="Anentropic",
